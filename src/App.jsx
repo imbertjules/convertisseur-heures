@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Clock, Copy, Check, Calculator, HelpCircle, BookOpen } from 'lucide-react';
 
 export default function App() {
@@ -46,16 +46,11 @@ export default function App() {
   });
 
   return (
-      <div className="min-h-screen bg-slate-50 text-slate-800 font-sans p-4 md:p-8 pb-24">
+      <div className="min-h-screen bg-slate-50 text-slate-800 font-sans p-4 md:p-8 pb-16">
         <div className="max-w-3xl mx-auto space-y-6">
 
-          {/* PUB 1 : Bannière En-tête */}
-          <div className="w-full bg-slate-200/70 border border-dashed border-slate-300 rounded-xl p-3 text-center text-xs text-slate-500 uppercase tracking-widest min-h-[90px] flex items-center justify-center">
-            [ Publicité 1 - En-tête 728x90 ]
-          </div>
-
           {/* Header */}
-          <header className="text-center space-y-2">
+          <header className="text-center space-y-2 pt-2">
             <div className="inline-flex items-center justify-center p-3 bg-blue-600 text-white rounded-2xl shadow-md mb-2">
               <Clock className="w-8 h-8" />
             </div>
@@ -131,16 +126,6 @@ export default function App() {
               {hours || 0} h {minutes || 0} min = {decimals} centièmes
             </span>
             </div>
-
-            {/* PUB 2 : Sous le résultat */}
-            <div className="w-full bg-slate-100 border border-dashed border-slate-300 rounded-xl p-3 text-center text-xs text-slate-500 uppercase tracking-widest min-h-[250px] flex items-center justify-center">
-              [ Publicité 2 - Pavé Carré / Rectangle 300x250 ]
-            </div>
-          </div>
-
-          {/* PUB 3 : Intermédiaire */}
-          <div className="w-full bg-slate-200/70 border border-dashed border-slate-300 rounded-xl p-3 text-center text-xs text-slate-500 uppercase tracking-widest min-h-[90px] flex items-center justify-center">
-            [ Publicité 3 - Native In-Feed ]
           </div>
 
           {/* Tableau complet */}
@@ -172,11 +157,6 @@ export default function App() {
             <p>
               Dans la gestion de la paie, la facturation d'honoraires ou le suivi de chantier, le temps de travail est exprimé en <strong>heures décimales (ou centièmes d'heure)</strong>. Un système horaire classique compte 60 minutes par heure, tandis que le système décimal découpe une heure en 100 centièmes.
             </p>
-
-            {/* PUB 4 : Au cœur de l'article */}
-            <div className="w-full bg-slate-100 border border-dashed border-slate-300 rounded-xl p-3 text-center text-xs text-slate-500 uppercase tracking-widest min-h-[120px] flex items-center justify-center">
-              [ Publicité 4 - In-Article Banner ]
-            </div>
 
             <div className="bg-slate-50 p-4 rounded-xl border-l-4 border-blue-600 font-mono text-sm">
               <strong>Formule de calcul :</strong><br />
@@ -211,11 +191,6 @@ export default function App() {
             <p>© {new Date().getFullYear()} Convertisseur Heures en Centièmes - Outil gratuit RH & Paie</p>
           </footer>
 
-        </div>
-
-        {/* PUB 5 : Sticky Bottom Anchor */}
-        <div className="fixed bottom-0 left-0 right-0 z-50 bg-slate-900 text-white p-2 text-center text-xs uppercase tracking-widest border-t border-slate-700 shadow-lg min-h-[50px] flex items-center justify-center">
-          [ Publicité 5 - Sticky Bottom Anchor Ad (Très forte rentabilité mobile) ]
         </div>
       </div>
   );
