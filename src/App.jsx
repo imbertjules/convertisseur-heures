@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Clock, Copy, Check, Calculator, HelpCircle, BookOpen } from 'lucide-react';
 
 export default function App() {
@@ -6,6 +6,10 @@ export default function App() {
   const [minutes, setMinutes] = useState('45');
   const [decimals, setDecimals] = useState('7.75');
   const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    document.title = `${hours}h${minutes} min = ${decimals} centièmes | Convertisseur Paie`;
+  }, [hours, minutes, decimals]);
 
   const handleTimeChange = (newHours, newMinutes) => {
     setHours(newHours);
@@ -128,7 +132,7 @@ export default function App() {
             </span>
             </div>
 
-            {/* PUB 2 : Sous le résultat (Zone de clic / haute attention) */}
+            {/* PUB 2 : Sous le résultat */}
             <div className="w-full bg-slate-100 border border-dashed border-slate-300 rounded-xl p-3 text-center text-xs text-slate-500 uppercase tracking-widest min-h-[250px] flex items-center justify-center">
               [ Publicité 2 - Pavé Carré / Rectangle 300x250 ]
             </div>
@@ -209,7 +213,7 @@ export default function App() {
 
         </div>
 
-        {/* PUB 5 : Sticky Bottom Anchor (Inamovible en bas d'écran sur mobile) */}
+        {/* PUB 5 : Sticky Bottom Anchor */}
         <div className="fixed bottom-0 left-0 right-0 z-50 bg-slate-900 text-white p-2 text-center text-xs uppercase tracking-widest border-t border-slate-700 shadow-lg min-h-[50px] flex items-center justify-center">
           [ Publicité 5 - Sticky Bottom Anchor Ad (Très forte rentabilité mobile) ]
         </div>
