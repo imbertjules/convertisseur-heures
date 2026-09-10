@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Clock, Copy, Check, Calculator, HelpCircle, BookOpen } from 'lucide-react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 export default function App() {
   const [hours, setHours] = useState('7');
@@ -47,6 +48,7 @@ export default function App() {
 
   return (
       <div className="min-h-screen bg-slate-50 text-slate-800 font-sans p-4 md:p-8 pb-16">
+        <SpeedInsights />
         <div className="max-w-3xl mx-auto space-y-6">
 
           {/* Header */}
