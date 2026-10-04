@@ -40,38 +40,48 @@ export default function CumulTool() {
       </div>
       <div className="space-y-3">
         {rows.map((row, index) => (
-          <div key={row.id} className="grid grid-cols-[1fr_5rem_5rem_auto] items-center gap-2">
-            <input
-              aria-label={`Libellé de la ligne ${index + 1}`}
-              value={row.label}
-              onChange={(event) => update(row.id, 'label', event.target.value)}
-              className="rounded-lg border border-slate-300 px-3 py-2 text-sm"
-            />
-            <input
-              aria-label={`Heures, ${row.label || `ligne ${index + 1}`}`}
-              type="number"
-              min="0"
-              value={row.hours}
-              onChange={(event) => update(row.id, 'hours', event.target.value)}
-              className="rounded-lg border border-slate-300 px-2 py-2 text-center text-sm font-semibold"
-            />
-            <input
-              aria-label={`Minutes, ${row.label || `ligne ${index + 1}`}`}
-              type="number"
-              min="0"
-              max="59"
-              value={row.minutes}
-              onChange={(event) => update(row.id, 'minutes', event.target.value)}
-              className="rounded-lg border border-slate-300 px-2 py-2 text-center text-sm font-semibold"
-            />
-            <button
-              type="button"
-              aria-label={`Retirer ${row.label || `la ligne ${index + 1}`}`}
-              className="rounded-lg p-2 text-slate-400 hover:text-red-600"
-              onClick={() => setRows((current) => current.filter((item) => item.id !== row.id))}
-            >
-              <Trash2 className="h-4 w-4" />
-            </button>
+          <div key={row.id} className="rounded-xl border border-slate-200 p-3">
+            <div className="mb-2 flex items-center gap-2">
+              <input
+                aria-label={`Libellé de la ligne ${index + 1}`}
+                value={row.label}
+                onChange={(event) => update(row.id, 'label', event.target.value)}
+                className="min-w-0 flex-1 rounded-lg border border-slate-300 px-3 py-2 text-sm"
+              />
+              <button
+                type="button"
+                aria-label={`Retirer ${row.label || `la ligne ${index + 1}`}`}
+                className="shrink-0 rounded-lg p-2 text-slate-400 hover:text-red-600"
+                onClick={() => setRows((current) => current.filter((item) => item.id !== row.id))}
+              >
+                <Trash2 className="h-4 w-4" />
+              </button>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <label className="text-xs font-semibold text-slate-500">
+                Heures
+                <input
+                  aria-label={`Heures, ${row.label || `ligne ${index + 1}`}`}
+                  type="number"
+                  min="0"
+                  value={row.hours}
+                  onChange={(event) => update(row.id, 'hours', event.target.value)}
+                  className="mt-1 w-full rounded-lg border border-slate-300 px-2 py-2 text-center text-sm font-semibold"
+                />
+              </label>
+              <label className="text-xs font-semibold text-slate-500">
+                Minutes
+                <input
+                  aria-label={`Minutes, ${row.label || `ligne ${index + 1}`}`}
+                  type="number"
+                  min="0"
+                  max="59"
+                  value={row.minutes}
+                  onChange={(event) => update(row.id, 'minutes', event.target.value)}
+                  className="mt-1 w-full rounded-lg border border-slate-300 px-2 py-2 text-center text-sm font-semibold"
+                />
+              </label>
+            </div>
           </div>
         ))}
       </div>
