@@ -1,0 +1,30 @@
+name: mise en prod o2switch
+
+# Une fusion vers `prod` vaut mise en production (décision de Jules, 16/11/2026).
+# Le site est un Vite/React : `npm run build` puis envoi FTPS de `dist/` à la
+# racine de convertisseur-heures-paie.fr, contrôle HTTP + version.txt, retour
+# arrière automatique si le contrôle échoue.
+# Le workflow réutilisable vit dans imbertjules/.github (workflow deploy-o2switch).
+
+on:
+  push:
+    branches: [prod]
+
+concurrency:
+  group: prod-o2switch
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    uses: imbertjules/.github/.github/workflows/deploy-o2switch.yml@main
+    with:
+      techno: node
+      version_node: "20"
+      dossier_source: dist
+      remote_path: "."
+      base_url: https://www.convertisseur-heures-paie.fr/
+      garder: 5
+    secrets: inherit
